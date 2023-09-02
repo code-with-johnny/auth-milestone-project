@@ -1,2 +1,2 @@
 # auth-milestone-project
-An authentication &amp; authorizatio project template for the software developer roadmap.
+An authentication &amp; authorization project template for the software developer roadmap.
