@@ -1,0 +1,55 @@
+.contact {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & .contact__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 2rem;
+    max-width: 1200px;
+  }
+
+  & p {
+    text-align: justify;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  & form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    padding: 2rem;
+    width: 700px;
+    max-width: 700px;
+    background: whitesmoke;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+
+    & input,
+    textarea {
+      box-shadow: none;
+    }
+
+    & textarea {
+      min-height: 200px;
+      font-size: 1.25rem;
+      font-family: Montserrat;
+    }
+
+    & button {
+      max-width: fit-content;
+      align-self: center;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  & form {
+    width: 80% !important;
+  }
+}

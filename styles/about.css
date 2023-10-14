@@ -1,0 +1,124 @@
+.about {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & .about__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 2rem;
+    max-width: 1200px;
+  }
+
+  & p {
+    text-align: justify;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  & table {
+    width: 100%;
+    min-width: fit-content;
+    margin: 2rem 0;
+    color: var(--dark-gray);
+    background: whitesmoke;
+    border-collapse: collapse;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+
+    & caption {
+      width: fit-content;
+      font-size: 2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: left;
+      padding: 0.5rem 1rem;
+      margin-left: 1rem;
+      color: white;
+      background: var(--dark-gray);
+      border-top-left-radius: var(--border-radius);
+      border-top-right-radius: var(--border-radius);
+    }
+
+    & tbody tr:nth-child(odd) {
+      background-color: white;
+    }
+
+    & tbody tr td:last-child,
+    th:last-child {
+      text-align: center;
+    }
+
+    & tr:last-child {
+      & td:first-child {
+        border-bottom-left-radius: var(--border-radius);
+      }
+
+      & td:last-child {
+        border-bottom-right-radius: var(--border-radius);
+      }
+    }
+
+    & th {
+      font-size: 1.5rem;
+      text-align: left;
+      padding: 1rem;
+    }
+
+    & td {
+      font-size: 1.25rem;
+      padding: 1rem;
+    }
+
+    & .check-mark {
+      font-size: 2rem;
+      padding: 0 1rem;
+      color: green;
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  table {
+    width: auto !important;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  table {
+    & th:nth-child(5),
+    td:nth-child(5) {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 880px) {
+  table {
+    & th:nth-child(2),
+    td:nth-child(2) {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 780px) {
+  table {
+    & th:nth-child(3),
+    td:nth-child(3) {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 680px) {
+  table {
+    & th:nth-child(4),
+    td:nth-child(4) {
+      display: none;
+    }
+  }
+}
