@@ -129,6 +129,8 @@ button {
   }
 }
 
+.header__nav__access {}
+
 .header__content-wrapper--mobile {
   display: none;
   width: 100%;
