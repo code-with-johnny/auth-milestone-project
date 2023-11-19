@@ -9,8 +9,11 @@
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&display=swap">
 
+  <!-- Icons -->
+  <script src="https://kit.fontawesome.com/abfda23f27.js" crossorigin="anonymous"></script>
+
   <!-- Local stylesheets -->
-  <link rel="stylesheet" href="styles/index.css" type="text/css">
+  <link rel="stylesheet" href="index.css" type="text/css">
 
   <!-- External scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"
@@ -19,32 +22,43 @@
 </head>
 
 <body>
-  <nav id="top">
-    <div>
+  <header id="top" class="header">
+    <div class="header__content-wrapper">
       <h1>Joseph The Cat</h1>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <i class="fa-solid fa-bars header__hamburger-icon"></i>
+      <i class="fa-solid fa-xmark header__close-icon"></i>
+      <nav class="header__nav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-  </nav>
+    <div class="header__content-wrapper--mobile">
+      <nav class="header__nav--mobile">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
   <main>
-    <section id="home" class="home">
-      <div class="home__content">
-        <div class="call-to-action">
+    <section class="cta">
+      <div class="cta__content-wrapper">
+        <div class="cta__copywrite-and-form">
           <h2>Why I'm awesome</h2>
           <p>I'm a cat, I'm cute, I'm fluffy, and I wear cool sunglasses.</p>
           <div>
             <p>Join my free newsletter to get weekly tips & tricks on coercing your human to give you treats. No spam,
               ever.</p>
             <form id="subscribe-form">
-              <input type="email" name='email' placeholder="Email address" required>
+              <input type="email" name="email" placeholder="Email Address" required>
               <button type="submit">Subscribe</button>
             </form>
           </div>
         </div>
-        <img src="./assets/img/joseph-the-cat.webp" alt="Joseph the cat">
+        <img class="cta__image" src="./assets/img/joseph-the-cat.webp" alt="Joseph The Cat">
       </div>
     </section>
     <section id="about" class="about">
@@ -65,20 +79,14 @@
           sunglasses never slipping. The crowd cheered, and I became a local legend, proving that being small and unique
           can be a powerful thing.
         </p>
-        <table id="cat-comparison">
-          <caption>Me vs. my siblings</caption>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Age</th>
-              <th>Weight</th>
-              <th>Fur color</th>
-              <th>Favorite food</th>
-              <th>Wears cool sunglasses</th>
-            </tr>
-          </thead>
-          <tbody>
-        </table>
+        <div class="about__table-wrapper">
+          <table id="cat-comparison" class="about__table">
+            <caption class="about__table-caption">Me vs. my siblings</caption>
+            <thead>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
       </div>
     </section>
     <section id="contact" class="contact">
@@ -89,11 +97,11 @@
         <p>
           If you want to contact me, fill out the form below. Please keep in mind I only respond to catnip offers.
         </p>
-        <form id="contact-form">
+        <form id="contact-form" class="contact__form">
           <input name="name" type="text" placeholder="Name" required>
           <input name="email" type="email" placeholder="Email" required>
           <textarea name="message" placeholder="Message" required></textarea>
-          <button type="submit">Send</button>
+          <button type="submit">Send Message</button>
         </form>
       </div>
     </section>
@@ -103,14 +111,14 @@
       </div>
     </a>
   </main>
-  <footer>
+  <footer class="footer">
     © Copyright - All rights reserved.
   </footer>
 
   <!-- Local scripts -->
+  <script src="scripts/hamburger-menu.js"></script>
   <script type="module" src="scripts/fetch-cat-data.js"></script>
   <script type="module" src="scripts/form-handlers.js"></script>
-  <script src="scripts/smooth-scroll.js"></script>
 </body>
 
 </html>
