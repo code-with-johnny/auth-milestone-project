@@ -1,4 +1,4 @@
-import { API_URL } from "../constants.js";
+import { API_URL } from "../../constants.js";
 
 (async () => {
   try {
@@ -8,7 +8,7 @@ import { API_URL } from "../constants.js";
     console.log(err.response.status);
     if (err.response.status === 401) {
       // instead of redirecting, just show login and register button
-      window.location.href = "/login.html";
+      console.log("you are not logged in");
     }
   }
 })();
