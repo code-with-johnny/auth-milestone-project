@@ -1,16 +1,9 @@
 {
-  "1": {
-    "id": "1",
-    "username": "Joe",
-    "email": "joe@test.com",
-    "password": "123456",
+  "25ac5fe7-07e2-4610-bf58-43994fecd1c7": {
+    "id": "25ac5fe7-07e2-4610-bf58-43994fecd1c7",
+    "username": "Joseph",
+    "email": "joseph@thecat.com",
+    "password": "$2b$10$oWqkQHAfeKxZvgbRWK3goO9CeOYvFUGz1wVKtTVU8.L41R5J6ZMYm",
     "role": "admin"
-  },
-  "2": {
-    "id": "2",
-    "username": "Jane",
-    "email": "jane@test.com",
-    "password": "123456",
-    "role": "user"
   }
 }
