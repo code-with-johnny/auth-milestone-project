@@ -17,7 +17,7 @@ closeIcon.addEventListener("click", () => {
 window.addEventListener("resize", () => {
   const { innerWidth } = window;
 
-  if (innerWidth > 599) {
+  if (innerWidth > 767) {
     menuIcon.style.display = "none";
     closeIcon.style.display = "none";
     mobileNav.style.display = "none";

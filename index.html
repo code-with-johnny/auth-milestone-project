@@ -15,11 +15,6 @@
   <!-- Local stylesheets -->
   <link rel="stylesheet" href="styles/index.css" type="text/css">
 
-  <!-- Local scripts -->
-  <script defer src="scripts/hamburger-menu.js"></script>
-  <script defer type="module" src="scripts/fetch-cat-data.js"></script>
-  <script defer type="module" src="scripts/form-handlers.js"></script>
-  <script type="module" src="scripts/authentication/check-auth-status.js"></script>
 
   <!-- External scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"
@@ -37,8 +32,22 @@
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li class="header__nav__access"><a href="access.html?mode=login">Login</a></li>
-          <li class="header__nav__access"><a href="access.html?mode=register">Register</a></li>
+          <li class="header__nav-account">
+            <div>
+              <span>Welcome,</span>
+              <span>Joseph</span>
+            </div>
+          </li>
+          <li class="header__nav-account">
+            <form id="logout">
+              <button type="submit">Logout</button>
+            </form>
+          </li>
+          <div class="header__nav-access">
+            <li><a href="access.html?mode=login">Login</a></li>
+            <li><a href="access.html?mode=register">Register</a></li>
+          </div>
+
         </ul>
       </nav>
     </div>
@@ -47,8 +56,21 @@
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li class="header__nav__access"><a href="access.html/login">Login</a></li>
-          <li class="header__nav__access"><a href="access.html/register">Register</a></li>
+          <li class="header__nav-account">
+            <div>
+              <span>Welcome,</span>
+              <span>Joseph</span>
+            </div>
+          </li>
+          <li class="header__nav-account">
+            <form id="logout">
+              <button type="submit">Logout</button>
+            </form>
+          </li>
+          <div class="header__nav-access">
+            <li><a href="access.html/login">Login</a></li>
+            <li><a href="access.html/register">Register</a></li>
+          </div>
         </ul>
       </nav>
     </div>
@@ -124,6 +146,13 @@
   <footer class="footer">
     © Copyright - All rights reserved.
   </footer>
+
+  <!-- Local scripts -->
+  <script src="scripts/hamburger-menu.js"></script>
+  <script type="module" src="scripts/fetch-cat-data.js"></script>
+  <script type="module" src="scripts/form-handlers.js"></script>
+  <script type="module" src="scripts/authentication/check-auth-status.js"></script>
+  <script type="module" src="scripts/authentication/logout.js"></script>
 
 </body>
 
