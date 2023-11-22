@@ -1,3 +1,7 @@
+/* 
+Logical CSS blocks are commented with a double pipe '||'. Use ctrl/cmd + f for
+easy navigation.
+*/
 :root {
   --dark-gray: #252424;
   --dark-black: rgb(25, 25, 25);
@@ -20,6 +24,7 @@
   scroll-behavior: smooth;
 }
 
+/* || GENERAL STYLES */
 body {
   height: 100vh;
   width: Max(100vw, 320px);
@@ -69,6 +74,22 @@ button {
   color: white;
 }
 
+.section-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--section-header-height);
+  width: inherit;
+  background: whitesmoke;
+
+  & h2 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px #717070;
+  }
+}
+
+/* || HEADER & NAVIGATION */
 .header {
   display: flex;
   flex-direction: column;
@@ -131,8 +152,10 @@ button {
 
 .header__nav-account {
   display: none;
+  align-items: center;
+  gap: 1rem;
 
-  & div {
+  & li:first-child {
     display: grid;
     place-items: end;
     font-weight: 500;
@@ -141,9 +164,10 @@ button {
   & form > button {
     height: 3.5rem;
     padding: 0.5rem 1rem;
-    background: whitesmoke;
-    color: var(--dark-gray);
+    border: 1px solid var(--dark-gray);
     border-radius: var(--border-radius);
+    background: white;
+    color: var(--dark-gray);
     font-size: 1.25rem;
 
     &:hover {
@@ -154,15 +178,14 @@ button {
 }
 
 .header__nav-access {
-  display: flex;
+  display: none;
   align-items: center;
   gap: 1rem;
-  visibility: hidden;
 
   & li > a {
     padding: 0.5rem 1rem;
-    border-radius: var(--border-radius);
     border: 1px solid var(--dark-gray);
+    border-radius: var(--border-radius);
     background: white;
 
     &:hover {
@@ -189,6 +212,7 @@ button {
   }
 }
 
+/* || CALL TO ACTION */
 .cta {
   display: flex;
   justify-content: center;
@@ -266,21 +290,7 @@ button {
   }
 }
 
-.section-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: var(--section-header-height);
-  width: inherit;
-  background: whitesmoke;
-
-  & h2 {
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 4px #717070;
-  }
-}
-
+/* || ABOUT */
 .about {
   width: inherit;
   display: grid;
@@ -386,6 +396,7 @@ button {
   }
 }
 
+/* || CONTACT */
 .contact {
   width: inherit;
   display: grid;
@@ -458,7 +469,7 @@ button {
   background-color: whitesmoke;
 }
 
-/* Tablets & small laptops */
+/* || TABLETS & SMALL LAPTOPS */
 @media only screen and (max-width: 1199px) {
   .cta {
     display: block;
@@ -487,7 +498,7 @@ button {
   }
 }
 
-/* Hamburger menu cutoff */
+/* || HAMBURGER MENU CUTOFF */
 @media only screen and (max-width: 767px) {
   .header__hamburger-icon {
     display: block;
@@ -497,19 +508,19 @@ button {
     display: none;
   }
 
-  .header__nav-account {
-    & div {
-      place-items: center;
-      padding: 0.5rem;
-    }
-  }
-
+  .header__nav-account,
   .header__nav-access {
     flex-direction: column;
   }
+
+  .header__nav-account {
+    & li:first-child {
+      place-items: center;
+    }
+  }
 }
 
-/* Mobile */
+/* || MOBILE */
 @media only screen and (max-width: 599px) {
   .header__content-wrapper {
     & h1 {
@@ -518,6 +529,7 @@ button {
   }
 }
 
+/* || DARK MODE */
 @media (prefers-color-scheme: dark) {
   :root {
     color: white;
