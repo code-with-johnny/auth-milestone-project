@@ -20,10 +20,18 @@
 
 <body>
   <div>hello world please login </div>
-  <!-- link to register form if user doesn't have an acc -->
+  <form id="access-form">
+    <input type='text' id="username" placeholder="Username" />
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <input type='password' id="confirm-password" placeholder="Confirm Password" />
+    <button type="submit" id="submit"></button>
+  </form>
 
-  <!-- back to home link -->
+  <a href="/">Back to home</a> <!-- back to home link -->
 
+  <!-- Local scripts -->
+  <script type="module" src="scripts/authentication/access.js"></script>
 </body>
 
 </html>

@@ -2,12 +2,7 @@ import bcrypt from "bcrypt";
 import cors from "cors";
 import express from "express";
 import fs from "fs";
-import session from "express-session";
 import { v4 as uuidv4 } from "uuid";
-import {
-  withAuthenticationRequired,
-  withAdminRoleRequired,
-} from "./server-utils.js";
 
 const catData = JSON.parse(fs.readFileSync("data/cat-data.json", "utf8"));
 const userData = JSON.parse(fs.readFileSync("data/user-data.json", "utf8"));
@@ -15,14 +10,7 @@ const app = express();
 const port = 8080;
 const bcryptSaltRounds = 10;
 
-app.use(
-  session({
-    secret: "super secret key",
-    resave: true,
-    saveUninitialized: false,
-    cookie: { secure: true },
-  })
-);
+let userId = "";
 
 app.use(cors());
 app.use(express.json());
@@ -50,7 +38,7 @@ app.post("/contact", (req, res) => {
 });
 
 app.get("/who-am-i", withAuthenticationRequired, (req, res) => {
-  const { username } = userData.find((user) => user.id === req.session.userId);
+  const { username } = userData[userId];
   return res.send(username);
 });
 
@@ -61,19 +49,19 @@ app.post("/login", (req, res) => {
     return res.sendStatus(400);
   }
 
-  const user = userData.find((user) => user.email === email);
+  const user = Object.values(userData).find((user) => user.email === email);
 
   if (!user || !bcrypt.compareSync(password, user.password)) {
     return res.sendStatus(401);
   }
 
-  req.session.userId = user.id;
+  userId = user.id;
 
   return res.sendStatus(200);
 });
 
 app.post("/logout", (req, res) => {
-  req.session.destroy();
+  userId = "";
   return res.sendStatus(200);
 });
 
@@ -84,7 +72,7 @@ app.post("/register", (req, res) => {
     return res.sendStatus(400);
   }
 
-  if (userData.find((user) => user.email === email)) {
+  if (Object.values(userData).find((user) => user.email === email)) {
     return res.sendStatus(409);
   }
 
@@ -109,3 +97,17 @@ app.post("/register", (req, res) => {
 app.listen(port, () => {
   console.log(`Joseph The Cat API listening on port ${port}`);
 });
+
+// Utils
+function withAuthenticationRequired(req, res, next) {
+  const user = userData[userId];
+  if (!user) return res.sendStatus(401);
+  next();
+}
+
+function withAdminRoleRequired(req, res, next) {
+  const user = userData[req.session.userId];
+  if (!user) return res.sendStatus(401);
+  if (user.role !== "admin") return res.sendStatus(403);
+  next();
+}

@@ -28,6 +28,10 @@
       <h1>Joseph The Cat</h1>
       <i class="fa-solid fa-bars header__hamburger-icon"></i>
       <i class="fa-solid fa-xmark header__close-icon"></i>
+      <!--
+        Ideally we would have one navbar to prevent code duplication, haven't
+        taken the time to come up with a solution yet.
+      -->
       <nav class="header__nav">
         <ul>
           <li><a href="#about">About</a></li>
@@ -35,7 +39,7 @@
           <div class="header__nav-account">
             <li>
               <span>Welcome,</span>
-              <span>Joseph</span>
+              <span class="username">Joseph</span>
             </li>
             <li>
               <form id="logout">
@@ -59,7 +63,7 @@
           <div class="header__nav-account">
             <li>
               <span>Welcome,</span>
-              <span>Joseph</span>
+              <span class="username">Joseph</span>
             </li>
             <li>
               <form id="logout">
