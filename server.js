@@ -10,6 +10,7 @@ const app = express();
 const port = 8080;
 const bcryptSaltRounds = 10;
 
+// Don't use this logic in a production environment.
 let userId = "";
 
 app.use(cors());
@@ -89,7 +90,7 @@ app.post("/register", (req, res) => {
   userData[id] = user;
   fs.writeFileSync("data/user-data.json", JSON.stringify(userData));
 
-  req.session.userId = user.id;
+  userId = user.id;
 
   return res.sendStatus(200);
 });

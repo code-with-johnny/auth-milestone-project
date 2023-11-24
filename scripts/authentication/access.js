@@ -43,11 +43,16 @@ const mode = urlParams.get("mode");
 
       window.location.href = "/";
     } catch (err) {
-      if (err.response.status === 409) {
-        alert("That email address already exists.");
-        return;
+      switch (err.response?.status) {
+        case 409:
+          alert("That email address already exists.");
+          return;
+        case 401:
+          alert("Incorrect email or password.");
+          return;
+        default:
+          console.error(err);
       }
-      console.error(err);
     }
   });
 })();
