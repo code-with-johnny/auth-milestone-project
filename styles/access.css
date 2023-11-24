@@ -1,0 +1,89 @@
+:root {
+  --dark-gray: #252424;
+  --dark-black: rgb(25, 25, 25);
+  --green: #25bb73;
+  --dark-green: #1d9e5b;
+  --border-radius: 10px;
+
+  font-family: Montserrat;
+  color-scheme: light dark;
+  color: var(--dark-gray);
+  background: radial-gradient(circle at center, #ffffff 0%, #eeeeee 100%);
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100svh;
+  min-height: fit-content;
+  min-width: 320px;
+  margin: 0;
+}
+
+main {
+  display: grid;
+  place-items: center;
+  gap: 2rem;
+  width: min(95%, 400px);
+}
+
+form {
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+input {
+  box-sizing: border-box;
+  font-size: 1.25rem;
+  border: 1px solid lightgray;
+}
+
+input,
+button {
+  width: 100%;
+  height: 60px;
+  padding: 0 1rem;
+  border-radius: calc(var(--border-radius) / 2);
+}
+
+button {
+  margin-top: 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: white;
+  border: none;
+  background: var(--green);
+}
+
+button:hover {
+  background-color: var(--dark-green);
+}
+
+a {
+  text-align: center;
+}
+
+#login,
+#register {
+  display: none;
+}
+
+/* || DARK MODE */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: white;
+    background: radial-gradient(
+      circle at center,
+      var(--dark-gray) 0%,
+      var(--dark-black) 100%
+    );
+  }
+
+  input {
+    background: var(--dark-black);
+    border: 1px solid darkgray;
+  }
+}

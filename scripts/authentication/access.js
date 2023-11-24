@@ -6,6 +6,8 @@ const email = document.getElementById("email");
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("confirm-password");
 const submit = document.getElementById("submit");
+const loginLink = document.getElementById("login");
+const registerLink = document.getElementById("register");
 const urlParams = new URLSearchParams(window.location.search);
 const mode = urlParams.get("mode");
 
@@ -16,6 +18,9 @@ const mode = urlParams.get("mode");
   }
 
   const isRegister = mode === "register";
+
+  loginLink.style.display = isRegister ? "block" : "none";
+  registerLink.style.display = isRegister ? "none" : "block";
 
   [username, confirmPassword].forEach((e, i) => {
     e.setAttribute(

@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
   <title>Joseph The Cat</title>
 
   <!-- Fonts -->
@@ -19,19 +20,23 @@
 </head>
 
 <body>
-  <div>hello world please login </div>
-  <form id="access-form">
-    <input type='text' id="username" placeholder="Username" />
-    <input type="email" id="email" placeholder="Email" required />
-    <input type="password" id="password" placeholder="Password" required />
-    <input type='password' id="confirm-password" placeholder="Confirm Password" />
-    <button type="submit" id="submit"></button>
-  </form>
-
-  <a href="/">Back to home</a> <!-- back to home link -->
+  <main>
+    <h1>Joseph The Cat</h1>
+    <form id="access-form">
+      <input type='text' id="username" placeholder="Username" />
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <input type='password' id="confirm-password" placeholder="Confirm Password" />
+      <button type="submit" id="submit"></button>
+    </form>
+    <a href="/access.html?mode=login" id="login">Already have an account? Click here to login.</a>
+    <a href="/access.html?mode=register" id="register">Don't have an account? Click here to register.</a>
+    <a href="/">Back to home</a>
+  </main>
 
   <!-- Local scripts -->
   <script type="module" src="scripts/authentication/access.js"></script>
+
 </body>
 
 </html>
