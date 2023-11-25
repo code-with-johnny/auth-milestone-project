@@ -16,6 +16,8 @@ let userId = "";
 app.use(cors());
 app.use(express.json());
 
+/* || UNPROTECTED ROUTES */
+
 app.get("/cat-data", (_, res) => res.send(catData));
 
 app.post("/email-subscribe", (req, res) => {
@@ -36,11 +38,6 @@ app.post("/contact", (req, res) => {
   }
 
   return res.sendStatus(200);
-});
-
-app.get("/who-am-i", withAuthenticationRequired, (req, res) => {
-  const { username } = userData[userId];
-  return res.send(username);
 });
 
 app.post("/login", (req, res) => {
@@ -95,11 +92,52 @@ app.post("/register", (req, res) => {
   return res.sendStatus(200);
 });
 
+/* || PROTECTED ROUTES */
+
+app.get("/who-am-i", withAuthenticationRequired, (req, res) => {
+  const { username } = userData[userId];
+  return res.send(username);
+});
+
+/* || ADMIN ROUTES */
+
+app.get("/admin/users", withAdminRoleRequired, (_, res) => {
+  return res.send(Object.values(userData));
+});
+
+app.put("/admin/users/:user_id", withAdminRoleRequired, (req, res) => {
+  const { user_id } = req.params;
+  const { role } = req.body;
+
+  if (!userData[user_id]) {
+    return res.sendStatus(404);
+  }
+
+  userData[user_id].role = role;
+  fs.writeFileSync("data/user-data.json", JSON.stringify(userData));
+
+  return res.sendStatus(200);
+});
+
+app.delete("/admin/users/:user_id", withAdminRoleRequired, (req, res) => {
+  const { user_id } = req.params;
+
+  if (!userData[user_id]) {
+    return res.sendStatus(404);
+  }
+
+  delete userData[user_id];
+  fs.writeFileSync("data/user-data.json", JSON.stringify(userData));
+
+  return res.sendStatus(200);
+});
+
 app.listen(port, () => {
   console.log(`Joseph The Cat API listening on port ${port}`);
 });
 
 // Utils
+
 function withAuthenticationRequired(req, res, next) {
   const user = userData[userId];
   if (!user) return res.sendStatus(401);

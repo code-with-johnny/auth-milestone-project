@@ -1,9 +1,9 @@
 {
-  "25ac5fe7-07e2-4610-bf58-43994fecd1c7": {
-    "id": "25ac5fe7-07e2-4610-bf58-43994fecd1c7",
-    "username": "Joseph",
-    "email": "joseph@thecat.com",
-    "password": "$2b$10$oWqkQHAfeKxZvgbRWK3goO9CeOYvFUGz1wVKtTVU8.L41R5J6ZMYm",
+  "54dc41c4-e2d2-476f-852a-1b4e08c9fd84": {
+    "id": "54dc41c4-e2d2-476f-852a-1b4e08c9fd84",
+    "username": "Johnny",
+    "email": "j@j.com",
+    "password": "$2b$10$hhR33cOCyX4Dd7BDfIUFSuD2HnaYy43efn8WugHuncsSz91QWR/7q",
     "role": "admin"
   }
 }
