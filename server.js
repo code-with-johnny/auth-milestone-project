@@ -58,7 +58,7 @@ app.post("/login", (req, res) => {
   return res.sendStatus(200);
 });
 
-app.post("/logout", (req, res) => {
+app.post("/logout", (_, res) => {
   userId = "";
   return res.sendStatus(200);
 });
@@ -95,8 +95,8 @@ app.post("/register", (req, res) => {
 /* || PROTECTED ROUTES */
 
 app.get("/who-am-i", withAuthenticationRequired, (req, res) => {
-  const { username } = userData[userId];
-  return res.send(username);
+  const { username, role } = userData[userId];
+  return res.send({ username, role });
 });
 
 /* || ADMIN ROUTES */
@@ -145,7 +145,7 @@ function withAuthenticationRequired(req, res, next) {
 }
 
 function withAdminRoleRequired(req, res, next) {
-  const user = userData[req.session.userId];
+  const user = userData[userId];
   if (!user) return res.sendStatus(401);
   if (user.role !== "admin") return res.sendStatus(403);
   next();

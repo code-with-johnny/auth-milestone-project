@@ -155,7 +155,11 @@ button {
   align-items: center;
   gap: 1rem;
 
-  & li:first-child {
+  & .admin-link {
+    display: none;
+  }
+
+  & .username {
     display: grid;
     place-items: end;
     font-weight: 500;
@@ -588,8 +592,8 @@ button {
   .contact__form {
     & input,
     textarea {
-      border: 1px solid whitesmoke;
-      background: var(--dark-gray);
+      background: var(--dark-black);
+      border: 1px solid darkgray;
       &::placeholder {
         opacity: 1;
       }
