@@ -16,8 +16,10 @@ import { API_URL } from "../../constants.js";
 
 function createUserRow(user) {
   const row = document.createElement("tr");
-  const username = document.createElement("td");
-  const email = document.createElement("td");
+  const tdUsername = document.createElement("td");
+  const tdEmail = document.createElement("td");
+  const tdRole = document.createElement("td");
+  const tdDelete = document.createElement("td");
   const roleSelect = document.createElement("select");
   const deleteButton = document.createElement("button");
 
@@ -42,7 +44,8 @@ function createUserRow(user) {
     }
   });
 
-  deleteButton.innerText = "Delete";
+  deleteButton.innerHTML = '<i class="fa-regular fa-trash-can"></i>';
+  deleteButton.type = "button";
   deleteButton.addEventListener("click", async (e) => {
     e.preventDefault();
     try {
@@ -53,10 +56,12 @@ function createUserRow(user) {
     }
   });
 
-  username.innerText = user.username;
-  email.innerText = user.email;
+  tdUsername.innerText = user.username;
+  tdEmail.innerText = user.email;
+  tdRole.append(roleSelect);
+  tdDelete.append(deleteButton);
 
-  row.append(username, email, roleSelect, deleteButton);
+  row.append(tdUsername, tdEmail, tdRole, tdDelete);
   return row;
 }
 
